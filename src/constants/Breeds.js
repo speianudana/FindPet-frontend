@@ -1,4 +1,4 @@
-const dogBreeds= [
+export const dogBreeds= [
     { value: "Affenpinscher", show: "Affenpinscher" },
     { value: "Airedale Terrier", show: "Airedale Terrier" },
     { value: "Akita Inu", show: "Akita Inu" },
@@ -20,6 +20,7 @@ const dogBreeds= [
     { value: "Caine de munte de Pirinei", show: "Caine de munte de Pirinei" },
     { value: "Dalmatian", show: 'Dalmatian' }
 ];
+export default dogBreeds;
 // Rase de câini: https://www.infocaini.ro/rase-de-caini/
 //     Affenpinscher, Airedale Terrier, Akita Inu, Amstaff, Azawakh,Barbet, Barzoi, Basenji, Basset Artesien Normand,
 //     Basset Griffon Vendeen, Basset Hound, Basset roscat de Bretania, Beagle, Bearded, Caine chinezesc cu creasta,

@@ -16,3 +16,13 @@
   justify-content: center;
   font-size: 3rem;
 }
+
+.color-nav{
+  bg-color: #00778b
+}
+
+avatar {
+  position: absolute;
+  margin-top: 10px;
+}
+.user-avatar{max-width:2.5rem}

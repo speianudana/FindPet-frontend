@@ -81,7 +81,7 @@ class MyPosts extends React.Component {
                     <Grid container spacing={1} >
                     {currentPosts.map(post => (
                         <Grid item xs={3}>
-                        <PostCard key = {post.id} post = {post} />
+                        <PostCard key={post.id} post={{...post}} />
                         </Grid>
                     ))}
                     </Grid>

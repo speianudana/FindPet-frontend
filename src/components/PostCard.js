@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from 'react-router-dom'
 import {makeStyles} from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActionArea from "@material-ui/core/CardActionArea";
@@ -45,41 +46,61 @@ function convertDate(inputFormat) {
     return [pad(d.getDate()), pad(d.getMonth()+1), d.getFullYear()].join('/')
 }
 
-function PostCard( post) {
+
+
+function PostCard({ post }) {
     const classes = useStyles();
-    console.log(post);
 
     return (
         <Card className={classes.root} >
             <CardActionArea>
-                <Chip size="small" label={post.post.status} className={classes.chip}/>
+                <Chip size="small" label={post.status} className={classes.chip}/>
                 <CardMedia
                     component="img"
                     alt="Contemplative Reptile"
                     height="180"
-                    image={[post.post.petImage]}
+                    image={[post.petImage]}
                     title="Contemplative Reptile"
                 />
-                {/*<img src={[post.post.petImage]} />*/}
-
                 <CardContent className={classes.content}>
                     <Avatar
                         className={classes.avatar}
-                        src="https://t4.ftcdn.net/jpg/01/22/26/41/240_F_122264106_LT3eZSVPB3AJSvj0cEkmrG2FMntQHaPS.jpg"
+                        // src="https://t4.ftcdn.net/jpg/01/22/26/41/240_F_122264106_LT3eZSVPB3AJSvj0cEkmrG2FMntQHaPS.jpg"
+                        src={post.user.userPhoto}
                     />
-                    <Typography gutterBottom variant="h5" component="h2">
-                        {post.post.species+" " +post.post.status}
-                    </Typography>
                     <Typography variant="body2" color="textSecondary" component="p">
-                        Autor: {post.post.user.firstName}
+                        Autor: {post.user.firstName} {post.user.lastName}
+                    </Typography>
+                    <Typography style = {{
+                        // display: 'inline-block',
+                    // fontWeight: 'bold',
+                    // fontFamily: 'Courier New',
+                    fontSize: '20'}} color="primary" component="p">
+                        Gen: {post.gender}
+                    </Typography>
+                    <Typography style = {{
+                        // display: 'inline-block',
+                        // fontWeight: 'bold',
+                        // fontFamily: 'Courier New',
+                        fontSize: '20'}}  color="primary" component="p">
+                        Rasă: {post.breed}
+                    </Typography>
+                    <Typography style = {{
+                        // display: 'inline-block',
+                        // fontWeight: 'bold',
+                        // fontFamily: 'Courier New',
+                        fontSize: '20'}}  color="primary" component="p">
+                        Regiune: {post.address}
                     </Typography>
                 </CardContent>
             </CardActionArea>
             <CardActions className={classes.footer}>
-                <Button size="small" color="primary">
-                    Detalii
+                <Button size="small" color="primary" >
+                    <Link to={`/postDetails/${post.id}`}>
+                        Detalii
+                    </Link>
                 </Button>
-                <Typography>{convertDate(post.post.createdDate)}</Typography>
+                <Typography>{convertDate(post.createdDate)}</Typography>
             </CardActions>
         </Card>
     );

@@ -1,41 +1,14 @@
 import React, {Component} from "react";
 import PostService from "../../services/PostService";
-import {Link} from "react-router-dom";
 import "./CreatePostPage.css"
 import form from "react-validation/build/form";
-// import dogBreeds from "../../constants/Breeds"
-import ImageUploader from 'react-images-upload';
+import dogBreeds from "../../constants/Breeds"
+import swal from "sweetalert";
 
-const dogBreeds = [
-    {value: "Nu știu", show: "Nu știu"},
-    {value: "Affenpinscher", show: "Affenpinscher"},
-    {value: "Airedale Terrier", show: "Airedale Terrier"},
-    {value: "Akita Inu", show: "Akita Inu"},
-    {value: "Amstaff", show: "Amstaff"},
-    {value: "Azawakh", show: "Azawakh"},
-    {value: "Barbet", show: "Barbet"},
-    {value: "Barzoi", show: "Barzoi"},
-    {value: "Basenji", show: "Basenji"},
-    {value: "Basset Artesien Norman", show: "Basset Artesien Norman"},
-    {value: "Basset Griffon Vendeen", show: "Basset Griffon Vendeen"},
-    {value: "Basset Hound", show: "Basset Hound"},
-    {value: "Basset roscat de Bretania", show: "Basset roscat de Bretania"},
-    {value: "Beagle", show: "Beagle"},
-    {value: "Bearded", show: "Bearded"},
-    {value: "Caine chinezesc cu creasta", show: "Caine chinezesc cu creasta"},
-    {value: "Caine de Islanda", show: "Caine de Islanda"},
-    {value: "Caine de apa portughez", show: "Caine de apa portughez"},
-    {value: "Caine de cireada australian", show: "Caine de cireada australian"},
-    {value: "Caine de munte de Pirinei", show: "Caine de munte de Pirinei"},
-    {value: "Dalmatian", show: 'Dalmatian'}
-];
 export default class CreatePostPage extends Component {
     constructor(props) {
         super(props);
         this.handlePostCreation = this.handlePostCreation.bind(this);
-        // this.onChangePetImage = this.onChangePetImage.bind(this);
-        // this.onChangeStatus = this.onChangeStatus.bind(this);
-        // this.onChangeSpecies = this.onChangeSpecies.bind(this);
         this.onChangeAddress = this.onChangeAddress.bind(this);
         this.onChangeContacts = this.onChangeContacts.bind(this);
         this.onChangeSterilization = this.onChangeSterilization.bind(this);
@@ -70,30 +43,16 @@ export default class CreatePostPage extends Component {
 
     handleChange = (e) => {
         const { target: { name: fieldName, value }} = e;
-        // console.log(fieldName, value)
         this.setState({
             [fieldName]: value
         })
     }
 
     onChangePetImage = event => {
-        console.log(event.target.files[0])
         this.setState({
             petImage: event.target.files[0],
         })
     }
-
-    // onChangeStatus(e) {
-    //     this.setState({
-    //         status: e.target.value
-    //     });
-    // }
-    //
-    // onChangeSpecies(e) {
-    //     this.setState({
-    //         species: e.target.value
-    //     });
-    // }
 
     onChangeSterilization(e) {
         const target = e.target;
@@ -182,16 +141,22 @@ export default class CreatePostPage extends Component {
                 this.state.reward,
                 this.state.age
             ).then(
+
                 response => {
-                    // console.log(response);
+                    swal("Foarte bine!","Postarea a fost creată!", {
+                        icon: "success",
+                    });
+                    this.props.history.push("/home");
                     this.setState({
                         message: response.data.message,
                         successful: true
                     });
                 },
                 error => {
-                    // console.log(error);
-
+                    console.log(error);
+                    swal("Oops!","Postarea NU a fost creată!", {
+                        icon: "error",
+                    });
                     const resMessage =
                         (error.response &&
                             error.response.data &&

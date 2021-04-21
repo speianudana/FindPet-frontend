@@ -17,6 +17,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3",
     "react-validation": "^3.0.7",
+    "shards-react": "^1.0.3",
     "shared": "^0.2.0",
     "validator": "^13.5.2"
   },

@@ -5,7 +5,9 @@ import header from "./Header";
 
 const POST_URL = 'http://localhost:8080/api/posts/getAllPosts';
 const MY_POSTS_URL = 'http://localhost:8080/api/posts/getMyPosts';
-const CREATE_POST_URL = 'http://localhost:8080/api/posts/createPost';
+const GET_POST_DETAILS = 'http://localhost:8080/api/posts/getPost';
+const DELETE_POST = 'http://localhost:8080/api/posts/deletePost';
+const EDIT_POST = 'http://localhost:8080/api/posts/editPost';
 
 class PostService {
     getAllPosts() {
@@ -14,9 +16,80 @@ class PostService {
     }
 
     getMyPosts() {
-        return axios.get(MY_POSTS_URL,{headers: authHeader() })
+        return axios.get(MY_POSTS_URL, {headers: authHeader()})
     }
 
+    getPostDetails(post_id) {
+        const params = [
+            ['id', post_id]
+        ];
+
+        return axios.get(`${GET_POST_DETAILS}?${new URLSearchParams(params)}`);
+        // return axios.get(`${GET_POST_DETAILS}?id=${post_id}`);
+    }
+
+    deletePost(post_id) {
+        const params = [
+            ['id', post_id]
+        ];
+        return axios.delete(`${DELETE_POST}?${new URLSearchParams(params)}`, {headers: authHeader()});
+
+    }
+
+    editPost(post) {
+        console.log(post)
+        let formData = new FormData();
+        formData.append("id", post.id);
+        formData.append("petImage", post.petImage);
+        formData.append("status", post.status);
+        formData.append("species", post.species);
+        formData.append("sterilization", post.sterilization);
+        formData.append("furColor", post.furColor);
+        formData.append("address", post.address);
+        formData.append("contacts", post.contacts);
+        formData.append("gender", post.gender);
+        formData.append("breed", post.breed);
+        formData.append("eyeColor", post.eyeColor);
+        formData.append("specialSigns", post.specialSigns);
+        formData.append("reward", post.reward);
+        formData.append("age", post.age);
+        formData.append("user", post.user);
+        formData.append("authorId", post.user.id);
+
+
+        console.log(formData)
+
+        return http.put(EDIT_POST, formData, {
+            headers: header()
+        });
+    }
+
+    editPostWithoutImage(post) {
+        console.log(post)
+        let formData = new FormData();
+        formData.append("id", post.id);
+        formData.append("status", post.status);
+        formData.append("species", post.species);
+        formData.append("sterilization", post.sterilization);
+        formData.append("furColor", post.furColor);
+        formData.append("address", post.address);
+        formData.append("contacts", post.contacts);
+        formData.append("gender", post.gender);
+        formData.append("breed", post.breed);
+        formData.append("eyeColor", post.eyeColor);
+        formData.append("specialSigns", post.specialSigns);
+        formData.append("reward", post.reward);
+        formData.append("age", post.age);
+        formData.append("user", post.user);
+        formData.append("authorId", post.user.id);
+
+
+        console.log(formData)
+
+        return http.put(EDIT_POST, formData, {
+            headers: header()
+        });
+    }
     createPost(petImage,
                status,
                species,
@@ -29,7 +102,7 @@ class PostService {
                eyeColor,
                specialSigns,
                reward,
-               age){
+               age) {
 
         let formData = new FormData();
         formData.append("petImage", petImage);
@@ -45,26 +118,10 @@ class PostService {
         formData.append("specialSigns", specialSigns);
         formData.append("reward", reward);
         formData.append("age", age);
-
-        console.log(petImage)
-        // return axios.post(CREATE_POST_URL, {
-        // petImage,
-        // status,
-        // species,
-        // sterilization,
-        // furColor,
-        // address,
-        // contacts,
-        // gender,
-        // breed,
-        // eyeColor,
-        // specialSigns,
-        // reward,
-        // age
-        // },{headers: authHeader() });
-
+        console.log(formData)
         return http.post("/api/posts/createPost", formData, {
-            headers: header()});
+            headers: header()
+        });
     }
 }
 

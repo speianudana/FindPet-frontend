@@ -66,11 +66,16 @@ export default class Register extends Component {
             lastName: "",
             address: "",
             contacts: "",
+            userPhoto:null,
             successful: false,
             message: ""
         };
     }
-
+    onChangeUserPhoto = event => {
+        this.setState({
+            userPhoto: event.target.files[0],
+        })
+    }
     onChangeUsername(e) {
         this.setState({
             username: e.target.value
@@ -133,7 +138,8 @@ export default class Register extends Component {
                 this.state.firstName,
                 this.state.lastName,
                 this.state.address,
-                this.state.contacts
+                this.state.contacts,
+                this.state.userPhoto
             ).then(
                 response => {
                     this.setState({
@@ -217,6 +223,12 @@ export default class Register extends Component {
                                 <input type="text" className="form-control" placeholder="Contacte"
                                        value={this.state.contacts}
                                        onChange={this.onChangeContacts}/>
+                            </div>
+
+                            <div className="form-group col-md-3">
+                                <label> Încarcă o fotografie</label>
+                                <input type="file" className="form-control"  onChange={this.onChangeUserPhoto} />
+
                             </div>
 
                             <button type="submit" className="btn btn-primary btn-block">Înregistrează-te</button>
