@@ -170,7 +170,24 @@ export default class SocialShare extends Component {
                         <VKIcon size={"2rem"} round />
                     </VKShareButton>
 
-
+                    <ImageProp>
+                        <img
+                            alt="This will be shown instead alt data specified above"
+                            class="
+              class and className are reserved words,
+              they will have their place with existing ones.
+              "
+                            rewrite="will remove existing ones(class or className) anyway"
+                        />
+                        <img
+                            rewrite="thumbnail the more specific rewrite wins."
+                            class="
+                More specifc class will show before common class
+              "
+                            title="Props are overwritten at JSX level."
+                            alt="This will be shown instead of one specified above"
+                        />
+                    </ImageProp>
                 </ShareList>
             </section>
         );
