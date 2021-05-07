@@ -1,7 +1,11 @@
 name: CI
 
 # Run this workflow every time a commit is pushed to main or a pull request is opened against main
-on: push
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
   
 
 jobs:
