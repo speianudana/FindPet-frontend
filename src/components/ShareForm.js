@@ -20,7 +20,7 @@ class ShareForm extends Component {
     render() {
         console.log(this.props);
         let url = "http://findmypet.azurewebsites.net/postDetails/" + this.props.post.data.id;
-        let { title } = this.state;
+        let  title  = "http://findmypet.azurewebsites.net/postDetails/" + this.props.post.data.petImage;
 
         console.log({url})
         /**
@@ -32,7 +32,7 @@ class ShareForm extends Component {
             <section>
                 <ShareCSS>
                     <div style={{ border: "1px" }}>
-                        <SocialShare title={url} url={url} />
+                        <SocialShare title={title} url={url} />
                     </div>
                 </ShareCSS>
             </section>
