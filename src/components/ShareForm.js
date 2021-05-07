@@ -23,6 +23,8 @@ class ShareForm extends Component {
         let  title  = "http://findmypet.azurewebsites.net/postDetails/" + this.props.post.data.petImage;
 
         console.log({url})
+        console.log({title})
+        console.log(url)
         /**
          * You don't have to use handleChange, handleBlur
          * and handleSubmit by using Formik and Field.
