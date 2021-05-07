@@ -9,7 +9,6 @@ jobs:
   pool:
     vmImage: 'ubuntu-latest'
   steps:
-    - uses: actions/checkout@main
     - task: NodeTool@0
       inputs:
         versionSpec: '10.x'
