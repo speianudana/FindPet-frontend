@@ -19,7 +19,7 @@ class ShareForm extends Component {
 
     render() {
         console.log(this.props);
-        let url = "http://localhost:3000/postDetails/" + this.props.post.data.id;
+        let url = "http://findmypet.azurewebsites.net/postDetails/" + this.props.post.data.id;
         let { title } = this.state;
 
         console.log({url})
