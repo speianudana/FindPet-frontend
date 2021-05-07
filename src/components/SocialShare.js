@@ -128,7 +128,7 @@ export default class SocialShare extends Component {
                         <VKIcon size={"2rem"} round />
                     </VKShareButton>
 
-                    <OKShareButton quote={url} imageUrl={title} >
+                    <OKShareButton quote={url} image={title} >
                         <OKIcon
                             size={"2rem"} // You can use rem value instead of numbers
                             round
