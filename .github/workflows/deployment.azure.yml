@@ -17,5 +17,5 @@ jobs:
           uses: Azure/pipelines@v1
           with:
             azure-devops-project-url: https://dev.azure.com/danaspeianu/findmypet-frontend
-            azure-pipeline-name: 'FindMyPet Pipeline'
+            azure-pipeline-name: 'FindPet-frontend'
             azure-devops-token: ${{ secrets.AZURE_DEVOPS_TOKEN }}
