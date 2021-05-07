@@ -20,4 +20,7 @@ steps:
     npm run build
   displayName: 'npm install and build'
 - task: PublishBuildArtifacts@1
+  inputs:
+        pathtoPublish: $(Build.ArtifactStagingDirectory)
+        ArtifactName: 'www' # output artifact named www
 
