@@ -35,7 +35,7 @@ const useStyles = makeStyles({
         right: "20px",
         color: "white",
         textTransform: "uppercase",
-        backgroundColor: "#8D91C7",
+        // backgroundColor: "#8D91C7",
         padding: "0 5px"
     }
 });
@@ -46,7 +46,13 @@ function convertDate(inputFormat) {
     return [pad(d.getDate()), pad(d.getMonth()+1), d.getFullYear()].join('/')
 }
 
-
+function chipColor(status){
+    if(status === "Pierdut"){
+        return "#c77252";
+    }
+    else if(status === "Găsit"){return "#8D91C7";}
+    else {return "#c7c314";}
+}
 
 function PostCard({ post }) {
     const classes = useStyles();
@@ -54,7 +60,8 @@ function PostCard({ post }) {
     return (
         <Card className={classes.root} >
             <CardActionArea>
-                <Chip size="small" label={post.status} className={classes.chip}/>
+
+                <Chip  style={{backgroundColor:chipColor(post.status)}} size="medium" label={post.status} className={classes.chip}/>
                 <CardMedia
                     component="img"
                     alt="Contemplative Reptile"
@@ -74,21 +81,18 @@ function PostCard({ post }) {
                     <Typography style = {{
                         // display: 'inline-block',
                     // fontWeight: 'bold',
-                    // fontFamily: 'Courier New',
                     fontSize: '20'}} color="primary" component="p">
                         Gen: {post.gender}
                     </Typography>
                     <Typography style = {{
                         // display: 'inline-block',
                         // fontWeight: 'bold',
-                        // fontFamily: 'Courier New',
                         fontSize: '20'}}  color="primary" component="p">
                         Rasă: {post.breed}
                     </Typography>
                     <Typography style = {{
                         // display: 'inline-block',
                         // fontWeight: 'bold',
-                        // fontFamily: 'Courier New',
                         fontSize: '20'}}  color="primary" component="p">
                         Regiune: {post.address}
                     </Typography>

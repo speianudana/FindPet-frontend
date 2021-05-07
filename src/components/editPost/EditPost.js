@@ -172,7 +172,7 @@ render()
         <div>
             <div>
                 <Typography variant="h4" align="center" style={{
-                    fontFamily: 'Courier New', fontWeight: 'bold',
+                    fontWeight: 'bold',
                     marginTop: '20px'
                 }}>Editează postarea</Typography>
             </div>
@@ -199,7 +199,6 @@ render()
                                         <Typography style={{
                                             display: 'inline-block',
                                             fontWeight: 'bold',
-                                            fontFamily: 'Courier New',
                                             fontSize: '20'
                                         }}> Status:</Typography>
                                         <select defaultValue={copyPost.status} value={copyPost.status}
@@ -207,13 +206,14 @@ render()
                                                 onChange={this.handleChange} name="status">
                                             <option value="Pierdut">Pierdut</option>
                                             <option value="Găsit">Găsit</option>
+                                            <option value="Ajuns acasă">Ajuns acasă</option>
+
                                         </select>
                                     </Typography>
                                     <Typography variant="h4">
                                         <Typography style={{
                                             display: 'inline-block',
                                             fontWeight: 'bold',
-                                            fontFamily: 'Courier New',
                                             fontSize: '20'
                                         }}> Specie: </Typography>
                                         <select defaultValue={copyPost.species} value={copyPost.species}
@@ -227,7 +227,6 @@ render()
                                         <Typography style={{
                                             display: 'inline-block',
                                             fontWeight: 'bold',
-                                            fontFamily: 'Courier New',
                                             fontSize: '20'
                                         }}> Culoarea
                                             blănii: </Typography>
@@ -242,7 +241,6 @@ render()
                                             style={{
                                                 display: 'inline-block',
                                                 fontWeight: 'bold',
-                                                fontFamily: 'Courier New',
                                                 fontSize: '20'
                                             }}> Rasă: </Typography>
 
@@ -260,7 +258,6 @@ render()
                                         <Typography style={{
                                             display: 'inline-block',
                                             fontWeight: 'bold',
-                                            fontFamily: 'Courier New',
                                             fontSize: '20'
                                         }}> Vârstă: </Typography>
                                         <input defaultValue={copyPost.age}
@@ -274,7 +271,6 @@ render()
                                         <Typography style={{
                                             display: 'inline-block',
                                             fontWeight: 'bold',
-                                            fontFamily: 'Courier New',
                                             fontSize: '20'
                                         }}> Genul: </Typography>
                                         <select defaultValue={copyPost.gender} value={copyPost.gender}
@@ -291,7 +287,6 @@ render()
                                         <Typography style={{
                                             display: 'inline-block',
                                             fontWeight: 'bold',
-                                            fontFamily: 'Courier New',
                                             fontSize: '20'
                                         }}> Culoarea
                                             ochilor: </Typography>
@@ -305,7 +300,6 @@ render()
                                         <Typography style={{
                                             display: 'inline-block',
                                             fontWeight: 'bold',
-                                            fontFamily: 'Courier New',
                                             fontSize: '20'
                                         }}> Sterilizat/ă: </Typography>
                                         <input defaultValue={copyPost.sterilization} className="form-control"
@@ -318,7 +312,6 @@ render()
                                         <Typography style={{
                                             display: 'inline-block',
                                             fontWeight: 'bold',
-                                            fontFamily: 'Courier New',
                                             fontSize: '20'
                                         }}> Semne
                                             speciale: </Typography>
@@ -333,7 +326,6 @@ render()
                                             style={{
                                                 display: 'inline-block',
                                                 fontWeight: 'bold',
-                                                fontFamily: 'Courier New',
                                                 fontSize: '20'
                                             }}> Regiune: </Typography>
                                         <input defaultValue={copyPost.address} type="text"
@@ -347,7 +339,6 @@ render()
                                         <Typography style={{
                                             display: 'inline-block',
                                             fontWeight: 'bold',
-                                            fontFamily: 'Courier New',
                                             fontSize: '20'
                                         }}> Recompensă: </Typography>
                                         <input defaultValue={copyPost.reward}
@@ -361,12 +352,10 @@ render()
                                         <Typography style={{
                                             display: 'inline-block',
                                             fontWeight: 'bold',
-                                            fontFamily: 'Courier New',
                                             fontSize: '20'
                                         }}> Data creării postării: </Typography>
                                         <Typography style={{
                                             display: 'inline-block',
-                                            fontFamily: 'Courier New',
                                             fontSize: '30'
                                         }}>{this.convertDate(post.createdDate)}</Typography>
                                     </Typography>

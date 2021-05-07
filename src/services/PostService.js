@@ -3,7 +3,10 @@ import authHeader from "./AuthHeader";
 import http from "../http-common";
 import header from "./Header";
 
-const POST_URL = 'http://localhost:8080/api/posts/getAllPosts';
+const ALL_POST_URL = 'http://localhost:8080/api/posts/getAllPosts';
+const FOUND_POST_URL = 'http://localhost:8080/api/posts/getFoundPetsPosts';
+const LOST_POST_URL = 'http://localhost:8080/api/posts/getLostPetsPosts';
+const SUCCESS_POST_URL = 'http://localhost:8080/api/posts/getSuccessStories';
 const MY_POSTS_URL = 'http://localhost:8080/api/posts/getMyPosts';
 const GET_POST_DETAILS = 'http://localhost:8080/api/posts/getPost';
 const DELETE_POST = 'http://localhost:8080/api/posts/deletePost';
@@ -11,8 +14,21 @@ const EDIT_POST = 'http://localhost:8080/api/posts/editPost';
 
 class PostService {
     getAllPosts() {
-        return axios.get(POST_URL);
+        return axios.get(ALL_POST_URL);
 
+    }
+
+    getFoundPetsPosts() {
+        return axios.get(FOUND_POST_URL);
+
+    }
+
+    getLostPetsPosts() {
+        return axios.get(LOST_POST_URL);
+    }
+
+    getSuccessStories() {
+        return axios.get(SUCCESS_POST_URL);
     }
 
     getMyPosts() {
