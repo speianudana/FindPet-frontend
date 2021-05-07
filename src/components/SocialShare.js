@@ -56,7 +56,8 @@ export default class SocialShare extends Component {
 
     render() {
         const { title, url } = this.props;
-
+ console.log(title)
+ console.log(url)
         /**
          * What was repeating here?
          *
@@ -85,76 +86,29 @@ export default class SocialShare extends Component {
          *       2. You shouldn't use just a string with prop-passer moduels.
          */
 
-        const ImageProp = Prop({
-            src: url,
-            style: {
-                width: "2rem",
-                height: "2rem",
-                borderRadius: "50%",
-                margin: "0 1rem 0 0.1rem"
-            },
-            alt: "placeholder",
-            className: "You can use both class and className",
-            title: "This can be overwritten.",
-            onMouseOver: repeat(function() {
-                console.log("You can pass function also, repeat 15 times");
-            })(15)
-        });
 
         const ShareList = Passers(share(<P
+            title = {title}
             url={url}
             className="network__share-button"
-            // style={{
-            //    opacity: 0.5 // You can use inline style instead
-            // }}
         />))({ className: "network" })("li");
 
-        // equals to with above with 70 bytes cost in result object
-        // const ShareList = Passers({
-        //   url,
-        //   className: "network__share-button",
-        //   // rewrite: "remove and replace existing class",
-        //   // rewrite: true // remove class prop,
-        //   style: {
-        //      opacity: 0.5 // You can use inline style instead
-        //   }
-        // })({ className: "network" })("li");
-
-        // console.log(<ShareList><p>1<p/><p>2</p></ShareList>)
 
         let original = <h1>will be copied a thousand times</h1>;
         let copyExample = copy(original)(1000);
-        // => equals writing <h1>will be copied</h1> x 500 manually
-        // => for placeholder of images, list, dropdown etc
-        // => use {copyExample} inside return()
-
         let withPass = pass("li")({
-            // key() shouldn't be included here
-            // p-xxxxx is given by default for pass and Passers
         })([
             <span>prop-passer</span>,
             <h1>prop-passer</h1>,
             <h6>prop-passer</h6>,
             <p>prop-passer</p>,
             <p>prop-passer</p>
-            // <p>use key prop here if you want custom value</p>
         ]);
-
-        // => {withpass} inside return()
-
-        // equals to writing
-        // <li key="p-xxxxx"><span>prop-passer</span></li>
-        // <li key="p-xxxxx"><h1>prop-passer</h1></li>
-        // <li key="p-xxxxx"><h6>prop-passer</h6></li>
-        // <li key="p-xxxxx"><p>prop-passer</p></li>
-        // <li key="p-xxxxx"><p>prop-passer</p></li>
-        // {style: { list-style: "none" } } is given by default.
-        // You can use your own if you dont like default values.
 
         return (
             <section className="c-network">
                 <ShareList>
-                    <FacebookShareButton quote={title} >
+                    <FacebookShareButton quote={url} imageUrl={title} >
                         <FacebookIcon
                             size={"2rem"} // You can use rem value instead of numbers
                             round
@@ -170,24 +124,7 @@ export default class SocialShare extends Component {
                         <VKIcon size={"2rem"} round />
                     </VKShareButton>
 
-                    <ImageProp>
-                        <img
-                            alt="This will be shown instead alt data specified above"
-                            class="
-              class and className are reserved words,
-              they will have their place with existing ones.
-              "
-                            rewrite="will remove existing ones(class or className) anyway"
-                        />
-                        <img
-                            rewrite="thumbnail the more specific rewrite wins."
-                            class="
-                More specifc class will show before common class
-              "
-                            title="Props are overwritten at JSX level."
-                            alt="This will be shown instead of one specified above"
-                        />
-                    </ImageProp>
+
                 </ShareList>
             </section>
         );
