@@ -23,7 +23,11 @@ import {
     FacebookIcon,
     VKIcon,
     WhatsappIcon,
-    ViberIcon
+    ViberIcon,
+    OKShareButton,
+    OKIcon,
+    TelegramShareButton,
+    TelegramIcon
 } from "react-share"; // https://github.com/nygardk/react-share/
 
 function wrap(WrappedComponent) {
@@ -88,7 +92,7 @@ export default class SocialShare extends Component {
 
 
         const ShareList = Passers(share(<P
-            title = {title}
+            imageUrl = {title}
             url={url}
             className="network__share-button"
         />))({ className: "network" })("li");
@@ -104,7 +108,7 @@ export default class SocialShare extends Component {
             <p>prop-passer</p>,
             <p>prop-passer</p>
         ]);
-
+        // console.log(imageUrl)
         return (
             <section className="c-network">
                 <ShareList>
@@ -124,7 +128,19 @@ export default class SocialShare extends Component {
                         <VKIcon size={"2rem"} round />
                     </VKShareButton>
 
+                    <OKShareButton quote={url} imageUrl={title} >
+                        <OKIcon
+                            size={"2rem"} // You can use rem value instead of numbers
+                            round
+                        />
+                    </OKShareButton>
 
+                    <TelegramShareButton quote={url} imageUrl={title} >
+                        <TelegramIcon
+                            size={"2rem"} // You can use rem value instead of numbers
+                            round
+                        />
+                    </TelegramShareButton>
                 </ShareList>
             </section>
         );
