@@ -4,6 +4,7 @@ import AuthService from "../../services/AuthService";
 import {Link} from "react-router-dom";
 import "./Register.css"
 import form from "react-validation/build/form";
+import swal from "sweetalert";
 
 const required = value => {
     if (!value) {
@@ -142,10 +143,13 @@ export default class Register extends Component {
                 this.state.userPhoto
             ).then(
                 response => {
+                    swal("Foarte bine!", "Ai fost înregistrat cu succes!", "success");
                     this.setState({
                         message: response.data.message,
                         successful: true
                     });
+                    this.props.history.push("/login");
+                    window.location.reload();
                 },
                 error => {
                     const resMessage =

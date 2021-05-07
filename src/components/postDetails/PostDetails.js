@@ -7,8 +7,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import swal from 'sweetalert';
-import axios from "axios";
-
+import ShareForm from "../ShareForm";
 
 export default class PostDetails extends Component {
     constructor(props) {
@@ -71,12 +70,15 @@ export default class PostDetails extends Component {
 
     isAuthor() {
         const authenticatedUser = AuthService.getCurrentUser();
-        const authenticatedUsername = authenticatedUser.username;
+        var authenticatedUsername;
+        if(authenticatedUser){
+        authenticatedUsername = authenticatedUser.username;
         var authorUser;
         if (this.state.currentPost.data) {
             authorUser = this.state.currentPost.data.user.username;
         }
-        return authenticatedUsername === authorUser;
+        return authenticatedUsername === authorUser;}
+        else {return false;}
     }
 
     render() {
@@ -85,12 +87,12 @@ export default class PostDetails extends Component {
         // }
 
         const currentPost = this.state.currentPost;
-
+        console.log(currentPost)
         return (
             <div>
                 <div>
                     <Typography variant="h4" align="center" style={{
-                        fontFamily: 'Courier New', fontWeight: 'bold',
+                        fontWeight: 'bold',
                         marginTop: '20px'
                     }}>Detaliile postării</Typography>
                 </div>
@@ -127,12 +129,10 @@ export default class PostDetails extends Component {
                                             <Typography style={{
                                                 display: 'inline-block',
                                                 fontWeight: 'bold',
-                                                fontFamily: 'Courier New',
                                                 fontSize: '20'
                                             }}> Status:</Typography>
                                             <Typography style={{
                                                 display: 'inline-block',
-                                                fontFamily: 'Courier New',
                                                 fontSize: '20'
                                             }}>{currentPost.data.status}</Typography>
                                         </Typography>
@@ -140,12 +140,10 @@ export default class PostDetails extends Component {
                                             <Typography style={{
                                                 display: 'inline-block',
                                                 fontWeight: 'bold',
-                                                fontFamily: 'Courier New',
                                                 fontSize: '20'
                                             }}> Specie: </Typography>
                                             <Typography style={{
                                                 display: 'inline-block',
-                                                fontFamily: 'Courier New',
                                                 fontSize: '20'
                                             }}>{currentPost.data.species}</Typography>
                                         </Typography>
@@ -153,13 +151,11 @@ export default class PostDetails extends Component {
                                             <Typography style={{
                                                 display: 'inline-block',
                                                 fontWeight: 'bold',
-                                                fontFamily: 'Courier New',
                                                 fontSize: '20'
                                             }}> Culoarea
                                                 blănii: </Typography>
                                             <Typography style={{
                                                 display: 'inline-block',
-                                                fontFamily: 'Courier New',
                                                 fontSize: '20'
                                             }}>{currentPost.data.furColor}</Typography>
                                         </Typography>
@@ -168,12 +164,10 @@ export default class PostDetails extends Component {
                                                 style={{
                                                     display: 'inline-block',
                                                     fontWeight: 'bold',
-                                                    fontFamily: 'Courier New',
                                                     fontSize: '20'
                                                 }}> Rasă: </Typography>
                                             <Typography style={{
                                                 display: 'inline-block',
-                                                fontFamily: 'Courier New',
                                                 fontSize: '20'
                                             }}>{currentPost.data.breed}</Typography>
                                         </Typography>
@@ -181,12 +175,10 @@ export default class PostDetails extends Component {
                                             <Typography style={{
                                                 display: 'inline-block',
                                                 fontWeight: 'bold',
-                                                fontFamily: 'Courier New',
                                                 fontSize: '20'
                                             }}> Vârstă: </Typography><Typography
                                             style={{
                                                 display: 'inline-block',
-                                                fontFamily: 'Courier New',
                                                 fontSize: '20'
                                             }}>{currentPost.data.age} ani</Typography>
                                         </Typography>
@@ -194,12 +186,10 @@ export default class PostDetails extends Component {
                                             <Typography style={{
                                                 display: 'inline-block',
                                                 fontWeight: 'bold',
-                                                fontFamily: 'Courier New',
                                                 fontSize: '20'
                                             }}> Genul: </Typography>
                                             <Typography style={{
                                                 display: 'inline-block',
-                                                fontFamily: 'Courier New',
                                                 fontSize: '20'
                                             }}>{currentPost.data.gender}</Typography>
                                         </Typography>
@@ -207,13 +197,11 @@ export default class PostDetails extends Component {
                                             <Typography style={{
                                                 display: 'inline-block',
                                                 fontWeight: 'bold',
-                                                fontFamily: 'Courier New',
                                                 fontSize: '20'
                                             }}> Culoarea
                                                 ochilor: </Typography>
                                             <Typography style={{
                                                 display: 'inline-block',
-                                                fontFamily: 'Courier New',
                                                 fontSize: '20'
                                             }}>{currentPost.data.eyeColor}</Typography>
                                         </Typography>
@@ -221,12 +209,10 @@ export default class PostDetails extends Component {
                                             <Typography style={{
                                                 display: 'inline-block',
                                                 fontWeight: 'bold',
-                                                fontFamily: 'Courier New',
                                                 fontSize: '20'
                                             }}> Sterilizat/ă: </Typography>
                                             <Typography style={{
                                                 display: 'inline-block',
-                                                fontFamily: 'Courier New',
                                                 fontSize: '20'
                                             }}>{currentPost.data.specialSigns ? "Da" : "Nu"}</Typography>
                                         </Typography>
@@ -234,12 +220,10 @@ export default class PostDetails extends Component {
                                             <Typography style={{
                                                 display: 'inline-block',
                                                 fontWeight: 'bold',
-                                                fontFamily: 'Courier New',
                                                 fontSize: '20'
                                             }}> Semne
                                                 speciale: </Typography><Typography style={{
                                             display: 'inline-block',
-                                            fontFamily: 'Courier New',
                                             fontSize: '20'
                                         }}>{currentPost.data.specialSigns}</Typography>
                                         </Typography>
@@ -248,12 +232,10 @@ export default class PostDetails extends Component {
                                                 style={{
                                                     display: 'inline-block',
                                                     fontWeight: 'bold',
-                                                    fontFamily: 'Courier New',
                                                     fontSize: '20'
                                                 }}> Regiune: </Typography><Typography
                                             style={{
                                                 display: 'inline-block',
-                                                fontFamily: 'Courier New',
                                                 fontSize: '20'
                                             }}>{currentPost.data.address}</Typography>
                                         </Typography>
@@ -261,12 +243,10 @@ export default class PostDetails extends Component {
                                             <Typography style={{
                                                 display: 'inline-block',
                                                 fontWeight: 'bold',
-                                                fontFamily: 'Courier New',
                                                 fontSize: '20'
                                             }}> Recompensă: </Typography>
                                             <Typography style={{
                                                 display: 'inline-block',
-                                                fontFamily: 'Courier New',
                                                 fontSize: '30'
                                             }}>{currentPost.data.reward} lei</Typography>
                                         </Typography>
@@ -274,16 +254,27 @@ export default class PostDetails extends Component {
                                             <Typography style={{
                                                 display: 'inline-block',
                                                 fontWeight: 'bold',
-                                                fontFamily: 'Courier New',
                                                 fontSize: '20'
                                             }}> Data creării postării: </Typography>
                                             <Typography style={{
                                                 display: 'inline-block',
-                                                fontFamily: 'Courier New',
                                                 fontSize: '30'
                                             }}>{this.convertDate(currentPost.data.createdDate)}</Typography>
                                         </Typography>
+                                        <Typography variant="h4">
+                                            <Typography style={{
+                                                display: 'inline-block',
+                                                fontWeight: 'bold',
+                                                fontSize: '20'
+                                            }}> Autor: </Typography>
+                                            <Typography style={{
+                                                display: 'inline-block',
+                                                fontSize: '30'
+                                            }} ><Link to={`/userDetails/${currentPost.data.user.id}`}>{currentPost.data.user.firstName} {currentPost.data.user.lastName}</Link></Typography>
+
+                                        </Typography>
                                     </Typography>
+                                   <ShareForm post = {currentPost}/>
                                 </div>
                             </div>
                         ) : console.log("There is no data!")
@@ -291,7 +282,7 @@ export default class PostDetails extends Component {
                 </div>
                 <div>
                     <Typography variant="h4" align="center" style={{
-                        fontFamily: 'Courier New', fontWeight: 'bold',
+                        fontWeight: 'bold',
                         marginTop: '20px'
                     }}>Postări similare</Typography>
                 </div>

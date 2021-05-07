@@ -1,5 +1,5 @@
 import React from 'react';
-import PostComponentHomePage from "../components/PostComponentHomePage";
+import PostComponentHomePage from "./PostComponentHomePage";
 
 function Home() {
 

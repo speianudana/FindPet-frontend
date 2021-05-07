@@ -2,7 +2,7 @@
 // import './App.css';
 // // import Navbar from './components/Navbar';
 // import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-// // import Home from './pages/Home';
+// // import SuccessStoriesPage from './pages/SuccessStoriesPage';
 // // import Reports from './pages/Reports';
 // // import Products from './pages/Products';
 // import Login from './components/login/Login';
@@ -20,7 +20,7 @@
 //
 //           {/*<Route path='/registration' component={Registration}/>*/}
 //           {/*<Route path='/dashboard' component={Dashboard}/>*/}
-//           {/*<ProtectedRoute path={'/profile'} component={MyProfile}/>*/}
+//           {/*<ProtectedRoute path={'/profile'} component={Profile}/>*/}
 //           {/*<ProtectedRoute path={'/create'} component={NewEvent}/>*/}
 //           {/*<ProtectedRoute path={'/eventdetails'} component={EventDetails}/>*/}
 //           {/*<ProtectedRoute path={'/myevents'} component={MyEvents}/>*/}
@@ -50,8 +50,8 @@ import AuthService from "./services/AuthService";
 
 import Login from "./components/login/Login";
 import Register from "./components/register/Register";
-import Home from "./pages/Home";
-import Profile from "./components/profile.component";
+import Home from "./components/home/Home";
+import Profile from "./components/Profile";
 import BoardUser from "./components/board-user.component";
 import MyPosts from "./components/MyPosts"
 import CreatePost from "./components/createPost/CreatePostPage"
@@ -62,6 +62,10 @@ import Menu from "@material-ui/core/Menu/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import {Navbar} from "react-bootstrap";
 import Avatar from "@material-ui/core/Avatar";
+import LostPetsPage from "./components/lostPets/LostPetsPage";
+import FoundPetsPage from "./components/foundPets/FoundPetsPage";
+import SuccessStoriesPage from "./components/successStories/SuccessStoriesPage";
+import EditUser from "./components/editUser/EditUser";
 
 class App extends Component {
     constructor(props) {
@@ -102,6 +106,8 @@ class App extends Component {
 
     render() {
         const {currentUser, showAdminBoard} = this.state;
+        console.log(currentUser)
+
         return (
             <div>
                 <Navbar className="color-nav">
@@ -111,10 +117,24 @@ class App extends Component {
                     <div className="navbar-nav mr-auto">
                         <li className="nav-item">
                             <Link to={"/home"} className="nav-link">
-                                <h5>Acasă</h5>
+                                <h6>Acasă</h6>
                             </Link>
                         </li>
-
+                        <li className="nav-item">
+                            <Link to={"/animale-pierdute"} className="nav-link">
+                                <h6>Animale pierdute</h6>
+                            </Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link to={"/animale-găsite"} className="nav-link">
+                                <h6>Animale găsite</h6>
+                            </Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link to={"/istorii-cu-suces"} className="nav-link">
+                                <h6>Istorii de success</h6>
+                            </Link>
+                        </li>
                         {showAdminBoard && (
                             <li className="nav-item">
                                 <Link to={"/admin"} className="nav-link">
@@ -126,14 +146,14 @@ class App extends Component {
                         {currentUser && (
                             <li className="nav-item">
                                 <Link to={"/myPosts"} className="nav-link">
-                                    <h5>Postările mele</h5>
+                                    <h6>Postările mele</h6>
                                 </Link>
                             </li>
                         )}
                         {currentUser && (
                             <li className="nav-item">
                                 <Link to={"/createPost"} className="nav-link">
-                                    <h5>Creează o postare</h5>
+                                    <h6>Creează o postare</h6>
                                 </Link>
                             </li>
                         )}
@@ -169,7 +189,7 @@ class App extends Component {
 
                                 </DropdownToggle>
                                 <Collapse tag={DropdownMenu} right small open={this.state.visible}>
-                                    <DropdownItem tag={Link} to={"/profile"}>
+                                    <DropdownItem tag={Link} to={`/userDetails/${currentUser.id}`}>
                                         Profile
                                     </DropdownItem>
                                     <DropdownItem divider />
@@ -210,9 +230,13 @@ class App extends Component {
 
                 <Switch>
                     <Route exact path={["/", "/home"]} component={Home}/>
+                    <Route exact path={"/animale-pierdute"} component={LostPetsPage}/>
+                    <Route exact path={"/animale-găsite"} component={FoundPetsPage}/>
+                    <Route exact path={"/istorii-cu-suces"} component={SuccessStoriesPage}/>
                     <Route exact path="/login" component={Login}/>
                     <Route exact path="/register" component={Register}/>
-                    <Route exact path="/profile" component={Profile}/>
+                    <Route exact path="/userDetails/:id" component={Profile}/>
+                    <Route exact path="/editProfile/:id" component={EditUser}/>
                     <Route path="/user" component={BoardUser}/>
                     <Route path="/myPosts" component={MyPosts}/>
                     <Route path="/createPost" component={CreatePost}/>
