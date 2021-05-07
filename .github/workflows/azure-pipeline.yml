@@ -1,5 +1,7 @@
 trigger:
   - main
+on:
+
 pool:
   vmImage: 'ubuntu-latest'
 steps:
