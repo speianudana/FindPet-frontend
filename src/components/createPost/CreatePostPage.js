@@ -4,6 +4,7 @@ import "./CreatePostPage.css"
 import form from "react-validation/build/form";
 import dogBreeds from "../../constants/Breeds"
 import swal from "sweetalert";
+import Button from "@material-ui/core/Button";
 
 export default class CreatePostPage extends Component {
     constructor(props) {
@@ -19,6 +20,7 @@ export default class CreatePostPage extends Component {
         this.onChangeSpecialSigns = this.onChangeSpecialSigns.bind(this);
         this.onChangeReward = this.onChangeReward.bind(this);
         this.onChangeAge = this.onChangeAge.bind(this);
+        this.onChangeDetails = this.onChangeDetails.bind(this);
 
 
         this.state = {
@@ -35,6 +37,7 @@ export default class CreatePostPage extends Component {
             specialSigns: "",
             reward: "",
             age: "",
+            details: "",
             successful: false,
             message: ""
         };
@@ -118,6 +121,11 @@ export default class CreatePostPage extends Component {
         });
     }
 
+    onChangeDetails(e) {
+        this.setState({
+            details: e.target.value
+        });
+    }
     handlePostCreation(e) {
         e.preventDefault();
 
@@ -139,7 +147,8 @@ export default class CreatePostPage extends Component {
                 this.state.eyeColor,
                 this.state.specialSigns,
                 this.state.reward,
-                this.state.age
+                this.state.age,
+                this.state.details
             ).then(
 
                 response => {
@@ -278,12 +287,32 @@ export default class CreatePostPage extends Component {
                                        onChange={this.onChangeAddress}/>
                             </div>
 
+                            <div className="form-group col-md-8" style={{
+                                display: 'inline-block',
+                            }}>
+                                <label>Detalii</label>
+                                <input type="text" className="form-control" placeholder="Detalii"
+                                       value={this.state.details}
+                                       onChange={this.onChangeDetails}  style={{
+                                    display: 'inline-block'
+                                }}/>
+                            </div>
+                                <div className="form-group col-md-2">
+                                    <label> </label>
+                                    <Button variant="outlined"
+                                        color="primary" style={{marginTop: '40px'}}
+                                        onClick={() => { this.handleEditPost(this.state.currentPost.data.id) }}>
+                                    Extract
+                                </Button>
+                            </div>
+
                             <div className="form-group col-md-6">
                                 <label>Contacte</label>
                                 <input type="text" className="form-control" placeholder="Contacte"
                                        value={this.state.contacts}
                                        onChange={this.onChangeContacts}/>
                             </div>
+
                             <div className="form-group col-md-2">
                                 <label> Sterilizat/ă </label>
 
@@ -295,7 +324,12 @@ export default class CreatePostPage extends Component {
                                 {/*<input type="file" className="custom-file-input"*/}
                                 {/*       value={this.state.petImage}*/}
                                 {/*       onChange={this.onChangePetImage}/>*/}
-                                <input type="file" className="form-control"  onChange={this.onChangePetImage} />
+                                <input type="file" className="form-control-file"
+                                    // value={copyUser.petImage}
+                                       onChange={this.onChangePetImage}
+                                       // name="userPhoto"
+                                />
+                                {/*<input type="file" className="form-control"  onChange={this.onChangePetImage} />*/}
 
                             </div>
                             {/*<div className="form-group col-md-3">*/}

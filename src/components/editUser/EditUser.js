@@ -5,6 +5,7 @@ import PostService from "../../services/PostService";
 import UserService from "../../services/UserService";
 import dogBreeds from "../../constants/Breeds"
 import swal from 'sweetalert'
+import NavSideBar from "../NavSideBar";
 
 export default class EditUser extends Component {
     constructor(props) {
@@ -79,6 +80,7 @@ export default class EditUser extends Component {
                 .then(response => {
                     swal("Foarte bine!", "Profilul a fost editat!", "success");
                     this.props.history.push("/home");
+
                     // this.props.history.push('/userDetails/${currentPost.data.user.id});
 
 

@@ -60,7 +60,7 @@ class MyPosts extends React.Component {
                         <div className="d-flex flex-row align-items-center">
                             <h2 className={headerClass}>
                                 <strong className="text-secondary">{totalPosts}</strong>{" "}
-                                Posts
+                                Postări create de mine
                             </h2>
                             {currentPage && (
                                 <span className="current-page d-inline-block h-100 pl-4 text-secondary">

@@ -145,7 +145,7 @@ export default class PostDetails extends Component {
                                             <Typography style={{
                                                 display: 'inline-block',
                                                 fontSize: '20'
-                                            }}>{currentPost.data.species}</Typography>
+                                            }}> {currentPost.data.species}</Typography>
                                         </Typography>
                                         <Typography variant="h4">
                                             <Typography style={{
@@ -157,7 +157,7 @@ export default class PostDetails extends Component {
                                             <Typography style={{
                                                 display: 'inline-block',
                                                 fontSize: '20'
-                                            }}>{currentPost.data.furColor}</Typography>
+                                            }}> {currentPost.data.furColor}</Typography>
                                         </Typography>
                                         <Typography variant="h4">
                                             <Typography
@@ -169,7 +169,7 @@ export default class PostDetails extends Component {
                                             <Typography style={{
                                                 display: 'inline-block',
                                                 fontSize: '20'
-                                            }}>{currentPost.data.breed}</Typography>
+                                            }}> {currentPost.data.breed}</Typography>
                                         </Typography>
                                         <Typography variant="h4">
                                             <Typography style={{
@@ -180,7 +180,7 @@ export default class PostDetails extends Component {
                                             style={{
                                                 display: 'inline-block',
                                                 fontSize: '20'
-                                            }}>{currentPost.data.age} ani</Typography>
+                                            }}> {currentPost.data.age} ani</Typography>
                                         </Typography>
                                         <Typography variant="h4">
                                             <Typography style={{
@@ -191,7 +191,7 @@ export default class PostDetails extends Component {
                                             <Typography style={{
                                                 display: 'inline-block',
                                                 fontSize: '20'
-                                            }}>{currentPost.data.gender}</Typography>
+                                            }}> {currentPost.data.gender}</Typography>
                                         </Typography>
                                         <Typography variant="h4">
                                             <Typography style={{
@@ -203,7 +203,7 @@ export default class PostDetails extends Component {
                                             <Typography style={{
                                                 display: 'inline-block',
                                                 fontSize: '20'
-                                            }}>{currentPost.data.eyeColor}</Typography>
+                                            }}> {currentPost.data.eyeColor}</Typography>
                                         </Typography>
                                         <Typography variant="h4">
                                             <Typography style={{
@@ -214,7 +214,7 @@ export default class PostDetails extends Component {
                                             <Typography style={{
                                                 display: 'inline-block',
                                                 fontSize: '20'
-                                            }}>{currentPost.data.specialSigns ? "Da" : "Nu"}</Typography>
+                                            }}> {currentPost.data.specialSigns ? "Da" : "Nu"}</Typography>
                                         </Typography>
                                         <Typography variant="h4">
                                             <Typography style={{
@@ -225,7 +225,7 @@ export default class PostDetails extends Component {
                                                 speciale: </Typography><Typography style={{
                                             display: 'inline-block',
                                             fontSize: '20'
-                                        }}>{currentPost.data.specialSigns}</Typography>
+                                        }}> {currentPost.data.specialSigns}</Typography>
                                         </Typography>
                                         <Typography variant="h4">
                                             <Typography
@@ -237,7 +237,7 @@ export default class PostDetails extends Component {
                                             style={{
                                                 display: 'inline-block',
                                                 fontSize: '20'
-                                            }}>{currentPost.data.address}</Typography>
+                                            }}> {currentPost.data.address}</Typography>
                                         </Typography>
                                         <Typography variant="h4">
                                             <Typography style={{
@@ -248,7 +248,18 @@ export default class PostDetails extends Component {
                                             <Typography style={{
                                                 display: 'inline-block',
                                                 fontSize: '30'
-                                            }}>{currentPost.data.reward} lei</Typography>
+                                            }}> {currentPost.data.reward} lei</Typography>
+                                        </Typography>
+                                        <Typography variant="h4">
+                                            <Typography style={{
+                                                display: 'inline-block',
+                                                fontWeight: 'bold',
+                                                fontSize: '20'
+                                            }}> Detalii: </Typography>
+                                            <Typography style={{
+                                                display: 'inline-block',
+                                                fontSize: '30'
+                                            }}> {currentPost.data.details}</Typography>
                                         </Typography>
                                         <Typography variant="h4">
                                             <Typography style={{
@@ -259,7 +270,7 @@ export default class PostDetails extends Component {
                                             <Typography style={{
                                                 display: 'inline-block',
                                                 fontSize: '30'
-                                            }}>{this.convertDate(currentPost.data.createdDate)}</Typography>
+                                            }}> {this.convertDate(currentPost.data.createdDate)}</Typography>
                                         </Typography>
                                         <Typography variant="h4">
                                             <Typography style={{

@@ -54,10 +54,10 @@ class PostComponentHomePage extends React.Component {
             .trim();
 
         return (
-                <div className="container mb-5">
-                    <div className="row d-flex flex-row py-2">
+                <div className="container mb-5" >
+                    <div className="row d-flex flex-row py-5" >
                         <div
-                            className="w-100 px-4 py-1 d-flex flex-row flex-wrap align-items-center justify-content-between">
+                            className="w-100  px-4 py-5 d-flex flex-row flex-wrap align-items-center justify-content-between">
                             <div className="d-flex flex-row align-items-center">
 
                                 <h2 className={headerClass}>
@@ -65,7 +65,7 @@ class PostComponentHomePage extends React.Component {
                                     Toate postările
                                 </h2>
                                 {currentPage && (
-                                    <span className="current-page d-inline-block h-30 pl-4 text-secondary">
+                                    <span className="current-page d-inline-block h-100 pl-4 text-secondary">
                   Pagina <span className="font-weight-bold">{currentPage}</span> /{" "}
                                         <span className="font-weight-bold">{totalPages}</span>
                 </span>

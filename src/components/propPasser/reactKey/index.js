@@ -1,5 +1,3 @@
-// import secret from "./withCrypto/";
-
 const key = (length = 5) => {
   {
     let charSet = "FGHIJNPQRSTUVWXYfghijpqrstuvwxy125678";
@@ -12,5 +10,4 @@ const key = (length = 5) => {
 
 export {
   key
-  // secret
 };

@@ -57,8 +57,6 @@ b
 K
 src/components/ShareForm.js,f\2\f21142a8fcdc3ff8832a70e5dff15dfb2c4b1678
 M
-src/components/PostSharing.js,d\c\dcf6470e81f5654c81fcabd77070286cdfd8e1fe
-M
 src/components/CSS/FormCSS.js,d\a\da94a7eb20a4f1ecb420b3708af312e6b6768a39
 <
 package.json,7\0\7030d0b2f71b999ff89a343de08c414af32fc93a

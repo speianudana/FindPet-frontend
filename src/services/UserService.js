@@ -3,7 +3,7 @@ import authHeader from './AuthHeader';
 import http from "../http-common";
 import header from "./Header";
 
-const API_URL = 'http://localhost:8080/api/test/';
+const API_URL = 'http://localhost:8080/api/users/';
 const GET_USER_DETAILS = 'http://localhost:8080/api/users/getUserDetails';
 const EDIT_USER_DETAILS = 'http://localhost:8080/api/users/editUser';
 
@@ -16,9 +16,13 @@ class UserService {
   //   return axios.get(API_URL + 'user', { headers: authHeader() });
   // }
   //
-  // getAdminBoard() {
-  //   return axios.get(API_URL + 'admin', { headers: authHeader() });
-  // }
+  getAdminBoard() {
+    return axios.get(API_URL + 'admin', { headers: authHeader() });
+  }
+
+  getNumberOfUser(){
+    return axios.get(API_URL+'getNumberOfUsers', { headers: authHeader() });
+  }
 
   getUserDetails(user_id){
     const params = [
@@ -28,7 +32,6 @@ class UserService {
     return axios.get(`${GET_USER_DETAILS}?${new URLSearchParams(params)}`);
   }
 
-  editUser
   editUser(user) {
     console.log(user)
     let formData = new FormData();

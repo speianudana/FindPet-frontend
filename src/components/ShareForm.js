@@ -1,9 +1,6 @@
 import React, { Component } from "react";
-import { Formik, Form, Field } from "formik";
-import ShareFormSchema from "./yupSchema/shareFormSchema";
 import SocialShare from "./SocialShare";
 import ShareCSS from "./CSS/ShareCSS";
-import FormCSS from "./CSS/FormCSS";
 
 // Refer) https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
 

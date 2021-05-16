@@ -69,6 +69,7 @@ class PostService {
         formData.append("specialSigns", post.specialSigns);
         formData.append("reward", post.reward);
         formData.append("age", post.age);
+        formData.append("details", post.details);
         formData.append("user", post.user);
         formData.append("authorId", post.user.id);
 
@@ -96,6 +97,7 @@ class PostService {
         formData.append("specialSigns", post.specialSigns);
         formData.append("reward", post.reward);
         formData.append("age", post.age);
+        formData.append("details", post.details)
         formData.append("user", post.user);
         formData.append("authorId", post.user.id);
 
@@ -118,7 +120,8 @@ class PostService {
                eyeColor,
                specialSigns,
                reward,
-               age) {
+               age,
+               details) {
 
         let formData = new FormData();
         formData.append("petImage", petImage);
@@ -134,6 +137,7 @@ class PostService {
         formData.append("specialSigns", specialSigns);
         formData.append("reward", reward);
         formData.append("age", age);
+        formData.append("details", details);
         console.log(formData)
         return http.post("/api/posts/createPost", formData, {
             headers: header()

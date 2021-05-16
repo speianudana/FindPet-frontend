@@ -40,6 +40,7 @@ export default class EditPost extends Component {
                 specialSigns: "",
                 reward: "",
                 age: "",
+                details: "",
                 successful: false,
                 message: ""
             },
@@ -57,6 +58,7 @@ export default class EditPost extends Component {
                 specialSigns: "",
                 reward: "",
                 age: "",
+                details: "",
                 successful: false,
                 message: ""
             }
@@ -295,6 +297,19 @@ render()
                                                value={copyPost.eyeColor}
                                                onChange={this.handleChange}
                                                name="eyeColor"/>
+                                    </Typography>
+
+                                    <Typography variant="h4">
+                                        <Typography style={{
+                                            display: 'inline-block',
+                                            fontWeight: 'bold',
+                                            fontSize: '20'
+                                        }}> Detalii: </Typography>
+                                        <input defaultValue={copyPost.details} type="text"
+                                               className="form-control" placeholder="Detalii"
+                                               value={copyPost.details}
+                                               onChange={this.handleChange}
+                                               name="details"/>
                                     </Typography>
                                     <Typography variant="h4">
                                         <Typography style={{

@@ -56,9 +56,9 @@ class PostComponentLostPets extends React.Component {
         return (
                 <div className="container mb-5">
 
-                    <div className="row d-flex flex-row py-2">
+                    <div className="row d-flex flex-row py-5">
                         <div
-                            className="w-100 px-4 py-1 d-flex flex-row flex-wrap align-items-center justify-content-between">
+                            className="w-100 px-4 py-5 d-flex flex-row flex-wrap align-items-center justify-content-between">
                             <div className="d-flex flex-row align-items-center">
                                 <h2 className={headerClass}>
                                     <strong className="text-secondary">{totalPosts}</strong>{" "}
