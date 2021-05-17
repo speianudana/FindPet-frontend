@@ -3,14 +3,14 @@ import authHeader from "./AuthHeader";
 import http from "../http-common";
 import header from "./Header";
 
-const ALL_POST_URL = 'http://localhost:8080/api/posts/getAllPosts';
-const FOUND_POST_URL = 'http://localhost:8080/api/posts/getFoundPetsPosts';
-const LOST_POST_URL = 'http://localhost:8080/api/posts/getLostPetsPosts';
-const SUCCESS_POST_URL = 'http://localhost:8080/api/posts/getSuccessStories';
-const MY_POSTS_URL = 'http://localhost:8080/api/posts/getMyPosts';
-const GET_POST_DETAILS = 'http://localhost:8080/api/posts/getPost';
-const DELETE_POST = 'http://localhost:8080/api/posts/deletePost';
-const EDIT_POST = 'http://localhost:8080/api/posts/editPost';
+const ALL_POST_URL = 'http://findmypet-back.azurewebsites.net/api/posts/getAllPosts';
+const FOUND_POST_URL = 'http://findmypet-back.azurewebsites.net/api/posts/getFoundPetsPosts';
+const LOST_POST_URL = 'http://findmypet-back.azurewebsites.net/api/posts/getLostPetsPosts';
+const SUCCESS_POST_URL = 'http://findmypet-back.azurewebsites.net/api/posts/getSuccessStories';
+const MY_POSTS_URL = 'http://findmypet-back.azurewebsites.net/api/posts/getMyPosts';
+const GET_POST_DETAILS = 'http://findmypet-back.azurewebsites.net/api/posts/getPost';
+const DELETE_POST = 'http://findmypet-back.azurewebsites.net/api/posts/deletePost';
+const EDIT_POST = 'http://findmypet-back.azurewebsites.net/api/posts/editPost';
 
 class PostService {
     getAllPosts() {

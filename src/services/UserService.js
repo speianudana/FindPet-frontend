@@ -3,9 +3,9 @@ import authHeader from './AuthHeader';
 import http from "../http-common";
 import header from "./Header";
 
-const API_URL = 'http://localhost:8080/api/users/';
-const GET_USER_DETAILS = 'http://localhost:8080/api/users/getUserDetails';
-const EDIT_USER_DETAILS = 'http://localhost:8080/api/users/editUser';
+const API_URL = 'http://findmypet-back.azurewebsites.net/api/users/';
+const GET_USER_DETAILS = 'http://findmypet-back.azurewebsites.net/api/users/getUserDetails';
+const EDIT_USER_DETAILS = 'http://findmypet-back.azurewebsites.net/api/users/editUser';
 
 class UserService {
   // getPublicContent() {

@@ -202,7 +202,7 @@ export default class CreatePostPage extends Component {
                                 <select value={this.state.status} className="form-control"
                                         onChange={this.handleChange} name="status">
                                     <option value="Pierdut">Pierdut</option>
-                                    <option value="Găsit">Găsit</option>
+                                    <option value="Gasit">Găsit</option>
                                 </select>
                             </div>
 
@@ -212,8 +212,8 @@ export default class CreatePostPage extends Component {
 
                                 <select value={this.state.species} className="form-control"
                                         onChange={this.handleChange} name="species">
-                                    <option value="Câine">Câine</option>
-                                    <option value="Pisică">Pisică</option>
+                                    <option value="Caine">Câine</option>
+                                    <option value="Pisica">Pisică</option>
                                 </select>
                             </div>
 
@@ -223,7 +223,7 @@ export default class CreatePostPage extends Component {
 
                                 <select value={this.state.gender} className="form-control"
                                         onChange={this.onChangeGender}>
-                                    <option value="Nu știu">Nu știu</option>
+                                    <option value="Nu stiu">Nu știu</option>
                                     <option value="Feminin">Feminin</option>
                                     <option value="Masculin">Masculin</option>
 

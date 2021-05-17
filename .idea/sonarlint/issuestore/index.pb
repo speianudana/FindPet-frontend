@@ -26,8 +26,6 @@ K
 src/App.css,a\a\aa7165aefcf8ee3d73539e99ab007daf1aa18d8d
 D
 src/serviceWorker.js,9\2\920ab6ab4a57ee20a36df4e3e2e73b70f9969d14
-@
-src/navbarexe.js,5\1\515280769c0ae246661d6acb71723786c54c1796
 A
 src/setupTests.js,b\7\b7e8d8f421068b8d51c89805d2035e747be2ff17
 N

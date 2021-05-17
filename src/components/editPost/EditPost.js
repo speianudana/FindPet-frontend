@@ -207,8 +207,8 @@ render()
                                                 className="form-control"
                                                 onChange={this.handleChange} name="status">
                                             <option value="Pierdut">Pierdut</option>
-                                            <option value="Găsit">Găsit</option>
-                                            <option value="Ajuns acasă">Ajuns acasă</option>
+                                            <option value="Gasit">Găsit</option>
+                                            <option value="Ajuns acasa">Ajuns acasă</option>
 
                                         </select>
                                     </Typography>
@@ -221,8 +221,8 @@ render()
                                         <select defaultValue={copyPost.species} value={copyPost.species}
                                                 className="form-control"
                                                 onChange={this.handleChange} name="species">
-                                            <option value="Câine">Câine</option>
-                                            <option value="Pisică">Pisică</option>
+                                            <option value="Caine">Câine</option>
+                                            <option value="Pisica">Pisică</option>
                                         </select>
                                     </Typography>
                                     <Typography variant="h4">
